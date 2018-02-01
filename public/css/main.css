@@ -25,3 +25,17 @@ ul.globalSuccess {
     padding: 25px;
     background-color: rgb(255, 87, 0);
 }
+
+.logout {
+    display: inline-block;
+    float: right;
+    padding: 15px;
+}
+
+.logout a {
+    text-decoration: none;
+}
+
+.logout a:hover {
+    color: #337ab7;
+}

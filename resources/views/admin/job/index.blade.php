@@ -6,7 +6,9 @@
 
 <div class="col-xs-12">
   <div class="x_panel">
-    <button style="float: right;" class="btn btn-primary btn-lg" onClick="window.open('{{url("job/create")}}', '_self');">+ {{Lang::get('titles.add')}}</button>
+    @if(Auth::user()->role_id == 2)
+        <button style="float: right;" class="btn btn-primary btn-lg" onClick="window.open('{{url("job/create")}}', '_self');">+ {{Lang::get('titles.add')}}</button>
+    @endif
     <div class="x_title">
       <h2>{{Lang::get('titles.job.list')}}</h2>
       </br>

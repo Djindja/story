@@ -11,8 +11,23 @@
 |
 */
 
+// route to show the login form
+// Route::get("login", 'HomeController@showLogin');
+// Route::post('login', [ 'as' => 'login', 'uses' => 'HomeController@showLogin']);
+//
+// route to process the form
+// Route::post("/login", 'HomeController@doLogin');
+//
+Route::get("/logout", 'HomeController@doLogout');
+
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::group(["prefix" => "job"], function () {

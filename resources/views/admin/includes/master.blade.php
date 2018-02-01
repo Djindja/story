@@ -58,11 +58,16 @@
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           @section('sidebar')
           <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul class="nav navbar-nav side-nav">
-                <li>
-                    <a href="{{url("/job")}}"><i class="fa fa-dashboard"></i> Job</a>
-                </li>
-              </ul>
+              @if(Auth::user()->role_id == 1)
+                  <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="{{url("/job")}}"><i class="fa fa-dashboard"></i> Job</a>
+                    </li>
+                  </ul>
+              @endif
+              <div class="logout">
+                  <a href="{{url("/logout")}}">Logout</a>
+              </div>
           </div>
           <!-- /.navbar-collapse -->
       </nav>
