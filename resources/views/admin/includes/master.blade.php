@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Task | @yield('title')</title>
+    <title> Story | @yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
 
@@ -53,17 +53,14 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="{{url("")}}">Task</a>
+              <a class="navbar-brand" href="{{url("")}}">Story</a>
           </div>
           <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
           @section('sidebar')
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="{{url("/school")}}"><i class="fa fa-dashboard"></i> School</a>
-                </li>
-                <li>
-                    <a href="{{url("/teacher")}}"><i class="fa fa-fw fa-user"></i> Teacher</a>
+                    <a href="{{url("/job")}}"><i class="fa fa-dashboard"></i> Job</a>
                 </li>
               </ul>
           </div>

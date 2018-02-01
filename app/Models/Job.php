@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class School extends Model
+class Job extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class School extends Model
      * @var array
      */
     protected $fillable = [
-        'school_name', 'year_founded', 'city',
+        'title', 'description', 'email',
     ];
 
     /**

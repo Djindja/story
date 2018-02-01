@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SchoolTable extends Migration
+class JobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class SchoolTable extends Migration
      */
     public function up()
     {
-        Schema::create('schools', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('school_name');
-            $table->date('year_founded');
-            $table->string('city')->nullable();
+            $table->string('title');
+            $table->text('description');
+            $table->string('email');
+            $table->enum('submission', array('moderation','public'));
 
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class SchoolTable extends Migration
      */
     public function down()
     {
-        Schema::drop('schools');
+        Schema::dropIfExists('jobs');
     }
 }
