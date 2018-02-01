@@ -13,7 +13,6 @@ return [
         'create' => 'Create job',
         'edit' => 'Edit job',
         'list' => 'List of jobs',
-        'create' => 'Create job',
     ],
 
 ];
