@@ -32,7 +32,9 @@ ul.globalSuccess {
     padding: 15px;
 }
 
-.logout a {
+.logout a,
+a.dropdown-toggle,
+.panel-heading a {
     text-decoration: none;
 }
 

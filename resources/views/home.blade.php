@@ -6,9 +6,9 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 @if(Auth::user()->role_id == 2)
-                    <div class="panel-heading"><a href="{{url("/job/create")}}">Dashboard</a></div>
+                    <div class="panel-heading">Go to <a href="{{url("/job/create")}}"> Dashboard </a> and create new Job.</div>
                 @else
-                    <div class="panel-heading"><a href="{{url("/")}}">Dashboard</a></div>
+                    <div class="panel-heading">Go to Dashboard: <a href="{{url("/")}}"> Dashboard </a></div>
                 @endif
                 <div class="panel-body">
                     @if (session('status'))
@@ -16,8 +16,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
                 </div>
             </div>
         </div>
