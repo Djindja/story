@@ -30,11 +30,13 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::group(["prefix" => "job"], function () {
-    Route::get("/", "Admin\JobsController@index");
-
+Route::group(["prefix" => "job", "middleware" => "manager"], function () {
     Route::get("/create", "Admin\JobsController@create");
     Route::post("/create", "Admin\JobsController@postCreate");
+});
+
+Route::group(["prefix" => "job", "middleware" => "moderator"], function () {
+    Route::get("/", "Admin\JobsController@index");
     Route::get("/edit/{id}", "Admin\JobsController@edit");
     Route::get("/{id}", "Admin\JobsController@edit");
     Route::post("/edit/{id}", "Admin\JobsController@postEdit");
