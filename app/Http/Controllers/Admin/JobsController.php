@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Mail;
 use Auth;
 use View;
 use Lang;
@@ -50,8 +51,25 @@ class JobsController extends Controller
         $job->title = Request::get('title');
         $job->description = Request::get('description');
         $job->email = Request::get('email');
+        $job->user_id = Auth::user()->id;
 
         if ($job->save()) {
+
+            if(! Job::where('user_id', $job->user_id)->exists()) {
+
+                $message = "You successfully post a job.";
+                Mail::raw($message, function($msg) use ($job) {
+                    $msg->to(env("SUPPORT_MAIL", $job->user->email));
+                    $msg->from('support@support.com');
+                });
+
+                $message = "Job title: " . $job->title . " and job description: " . $job->description . '<a href="{{url("/")}}/submission/$job->id">Submission</a>';
+                Mail::raw($message, function($msg) {
+                    $msg->to(env("SUPPORT_MAIL", "moderator@gmail.com"));
+                    $msg->from('support@support.com');
+                });
+            }
+
             return redirect("/job/edit/$job->id")->with('successfulMessages',[Lang::get('errors.successfullyJob')]);
         } else {
             return redirect("/job/create")->withErrors([Lang::get('errors.somethingWrong')]);
@@ -116,5 +134,25 @@ class JobsController extends Controller
         } else {
             return redirect("/job")->withErrors([Lang::get('errors.somethingWrong')]);
         }
+    }
+
+    public function publish(int $id)
+    {
+        $job = Job::find($id);
+
+        $job->submission = "public";
+        $job->touch();
+
+        return "You published this job.";
+    }
+
+    public function spam(int $id)
+    {
+        $job = Job::find($id);
+
+        $job->submission = "moderation";
+        $job->touch();
+
+        return "You sent this job to moderation mode.";
     }
 }

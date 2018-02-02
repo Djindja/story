@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class User extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class Job extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'email',
+        'name', 'email', 'email',
     ];
 
     /**
@@ -25,8 +25,4 @@ class Job extends Model
 
     ];
 
-    public function user()
-    {
-        return $this->BelongsTo(User::class);
-    }
 }

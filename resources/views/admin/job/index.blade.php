@@ -26,7 +26,6 @@
                 <th style="text-align: left; width: 20%;">{{Lang::get('titles.job.title')}}</th>
                 <th style="text-align: left; width: 20%;">{{Lang::get('titles.job.description')}}</th>
                 <th style="text-align: left; width: 20%;">{{Lang::get('titles.job.email')}}</th>
-                <th style="text-align: center; width: 5%;">{{Lang::get('titles.edit')}}</th>
                 <th style="text-align: center; width: 5%;">{{Lang::get('titles.delete')}}</th>
               </tr>
             </thead>
@@ -37,7 +36,6 @@
                 <td style="text-align: left; width: 30%;">{{$job->title}}</td>
                 <td style="text-align: left; width: 30%;">{{$job->description}}</td>
                 <td style="text-align: left; width: 50%;">{{$job->email}}</td>
-                <td style="text-align: center; width: 5%;"><a href="{{url("job/edit/$job->id")}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
                 <td style="text-align: center; width: 5%;"><a onclick="return (confirm('Are you sure?'))" href="{{url("job/delete/$job->id")}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
               </tr>
               @endforeach

@@ -16,6 +16,7 @@ class JobTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->integer('user_id');
             $table->text('description');
             $table->string('email');
             $table->enum('submission', array('moderation','public'));
