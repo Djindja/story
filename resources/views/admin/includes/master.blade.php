@@ -11,7 +11,6 @@
     <title> Story | @yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
-
     <link href="{{url("css/bootstrap.min.css")}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{url("css/sb-admin.css")}}" rel="stylesheet">

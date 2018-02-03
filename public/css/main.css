@@ -41,3 +41,10 @@ a.dropdown-toggle,
 .logout a:hover {
     color: #337ab7;
 }
+
+a.publish,
+a.spam {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+}
