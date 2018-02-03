@@ -37,6 +37,7 @@ Route::get('/home', function () {
 Route::group(["prefix" => "job", "middleware" => "manager"], function () {
     Route::get("/create", "Admin\JobsController@create");
     Route::post("/create", "Admin\JobsController@postCreate");
+    Route::post("/edit/{id}", "Admin\JobsController@postEdit");
     Route::get("/edit/{id}", "Admin\JobsController@edit");
     Route::get("/{id}", "Admin\JobsController@edit");
 });

@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="col-md-1">{{Lang::get('titles.job.email')}}
+    <label class="col-md-1">{{Lang::get('titles.job.email')}}<span class="required"> *</span>
     </label>
     <div class="col-md-4">
       <input name="email" class="form-control form-group" required="required" type="text" value="{{$jobs->email}}"/>
