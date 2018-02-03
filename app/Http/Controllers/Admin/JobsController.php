@@ -57,7 +57,7 @@ class JobsController extends Controller
 
             if(! Job::where('user_id', $job->user_id)->exists()) {
 
-                $message = "You successfully post a job.";
+                $message = "You have successfully posted a job.";
                 Mail::raw($message, function($msg) use ($job) {
                     $msg->to(env("SUPPORT_MAIL", $job->user->email));
                     $msg->from('support@support.com');
